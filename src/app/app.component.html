@@ -1,16 +1,10 @@
 <nav class="navbar navbar-expand-sm  mb-5">
     <div class="container-fluid">
         <a class="navbar-brand" href="#"><i class="fab fa-autoprefixer text-danger display-6"></i></a>
-        
 
-    <button class="navbar-toggler ms-1 shadow-none"
-        type="button"
-         data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-           aria-controls="navbarSupportedContent"
-            aria-label="Toggle navigation "
-             onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
-              aria-expanded="false" >
+
+        <button class="navbar-toggler ms-1 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation " onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+            aria-expanded="false">
                 <svg width="25" height="25" viewBox="0 0 100 100">
                   <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
                   <path class="line line2" d="M 20,50 H 80" />
@@ -20,19 +14,16 @@
     </button>
 
 
-
-
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav d-flex justify-content-center mx-auto  mb-2 mb-lg-0">
+            <ul class="navbar-nav d-flex justify-content-center ms-auto  mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link d-flex flex-column" routerLink="home" routerLinkActive="active">
                         <span class="d-block mx-auto"><i class="fal fa-home-alt text-dark mt-2 " id="homeicon"></i></span>
                         <span class="button1 text-center">Home</span>
                     </a>
                 </li>
-               
-                <li class="nav-item" >
+
+                <li class="nav-item" *ngIf="us.userLoginStatus">
                     <a class="nav-link  d-flex flex-column" routerLink="book" routerLinkActive="active ">
                         <span class="d-block mx-auto"><i class="fal fa-bus text-dark  mt-2" id="busicon"></i></span>
                         <span class="button1 text-center">BookTickets</span>
@@ -50,19 +41,19 @@
                         <span class="button1 text-center">Signup</span>
                     </a>
                 </li>
-                <li class="nav-item" >
+                <li class="nav-item" *ngIf="!us.userLoginStatus">
                     <a class="nav-link d-flex flex-column" routerLink="login" routerLinkActive='active'>
                         <span class="d-block mx-auto"><i class="fal fa-sign-in text-dark  mt-2" id="loginicon"></i></span>
                         <span class="button1 text-center">Login</span>
                     </a>
                 </li>
-                <li class="nav-item"  (click)="userLogout() ">
+                <li class="nav-item" *ngIf="us.userLoginStatus" (click)="userLogout() ">
                     <a class="nav-link  d-flex flex-column" routerLink="login" routerLinkActive='active'>
                         <span class="d-block mx-auto"><i class="fal fa-sign-out text-dark  mt-2" id="logouticon"></i></span>
                         <span class="button1  text-center">Logout</span>
                     </a>
                 </li>
-                <li class="nav-item" >
+                <li class="nav-item" *ngIf="us.userLoginStatus">
                     <a class="nav-link  d-flex flex-column" routerLink="profile" routerLinkActive='active'>
                         <span class="d-block mx-auto"><i class="far fa-user-circle text-dark  mt-2" id="profileicon"></i></span>
                         <span class="button1 text-center">Profile</span>

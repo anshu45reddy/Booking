@@ -14,11 +14,11 @@ export class DdataService {
 
   getHotels():Observable<m_hotels[]>{
                               //json-server URL
-    return this.hc.get<m_hotels[]>('http://localhost:3000/hotels')
+    return this.hc.get<m_hotels[]>('http://localhost:5000/hotels')
   }
 
   getHotelsById(id):Observable<m_hotels>{
-    return this.hc.get<m_hotels>('http://localhost:3000/hotels/'+id)
+    return this.hc.get<m_hotels>('http://localhost:5000/hotels/'+id)
   }
 
   
